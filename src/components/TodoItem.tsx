@@ -1,9 +1,9 @@
 import { component$, type PropFunction } from '@builder.io/qwik';
 
 interface TodoProps {
-  removeTodo$: PropFunction<(id:number) => void>
-  updateTodo$: PropFunction<(id:number) => void>
-  id: number;
+  removeTodo$: PropFunction<(id:string) => void>
+  updateTodo$: PropFunction<(id:string) => void>
+  id: string;
   content: string;
   completed: boolean;
   

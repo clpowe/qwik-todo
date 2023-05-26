@@ -8,7 +8,7 @@ import {
 } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { isBrowser } from '@builder.io/qwik/build';
-import { TodoItem } from '../components/TodoItem.tsx';
+import { TodoItem } from '../components/TodoItem';
 
 interface Todo {
   id: string;
@@ -51,11 +51,11 @@ export default component$(() => {
     input.value = '';
   });
 
-  const removeTodo$ = $((id: number) => {
+  const removeTodo$ = $((id: string) => {
     todosSignal.todos = todosSignal.todos.filter((todo) => todo.id != id);
   });
 
-  const updateTodo$ = $((id: number) => {
+  const updateTodo$ = $((id: string) => {
     const index = todosSignal.todos.findIndex((todo: Todo) => todo.id === id);
     todosSignal.todos[index].completed = !todosSignal.todos[index].completed;
   });
